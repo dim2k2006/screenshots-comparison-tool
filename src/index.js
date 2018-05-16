@@ -1,5 +1,5 @@
-import make from './components/make';
-import compare from './components/compare';
+import {make} from './components/maker';
+import {compare} from './components/comparator';
 
 /**
  * Creates a new Screenshots class
