@@ -2,33 +2,21 @@
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
+        "sourceType": "module"
     },
     "env": {
         "node": true,
         "browser": true
     },
     "globals": {
-        "Modernizr": true,
-        "google": true,
-        "objectFitImages": true,
-        "YT": true,
-        "Inputmask": true,
         "test": true,
         "expect": true,
         "describe": true,
         "it": true,
-        "Promise": true,
         "jest": true,
         "process": true,
         "NODE_ENV": true
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
         "curly": "error",
         "default-case": "error",
@@ -70,8 +58,6 @@
         "space-in-parens": ["error", "never"],
         "unicode-bom": "error",
         "no-var": "error",
-        "semi": 2,
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error"
+        "semi": 2
     }
 }
