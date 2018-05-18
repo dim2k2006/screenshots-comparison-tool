@@ -1,6 +1,6 @@
 import path from 'path';
 import glob from 'glob';
-import config from '../config';
+import config from '../src/config';
 
 const pagesPath = config.pagesPath;
 

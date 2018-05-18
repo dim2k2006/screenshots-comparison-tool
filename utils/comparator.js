@@ -3,7 +3,7 @@ import path from 'path';
 import BlinkDiff from 'blink-diff';
 import colors from 'colors';
 import Tracer from 'tracer';
-import config from '../config';
+import config from '../src/config';
 
 const tracer = Tracer.colorConsole({
     format: '{{timestamp}} | {{message}}',

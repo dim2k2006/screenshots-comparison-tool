@@ -1,13 +1,14 @@
 import Pageres from 'pageres';
 import path from 'path';
 import getPages from './getPages';
-import config from '../config';
+import config from '../src/config';
 
 const delay = config.delay;
 const resolutions = config.resolutions;
 const dest = config.dest;
 const pages = getPages();
 const url = config.url;
+
 const date = new Date;
 const year = date.getFullYear();
 const month = date.getMonth() + 1;
