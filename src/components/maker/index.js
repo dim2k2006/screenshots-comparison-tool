@@ -1,5 +1,5 @@
-// import Pageres from 'pageres';
-// import path from 'path';
+import Pageres from 'pageres';
+import path from 'path';
 import logger from '../../utils/logger';
 import config from '../../config';
 
@@ -22,14 +22,22 @@ const getCurrentDate = () => {
 };
 
 /**
- *
+ * Make page screenshot
+ * @param {Object}
  */
-const makeScreenshot = (/* props = {}*/) => {
-    // new Pageres({delay: delay})
-    //     .src(`${url}${page}`, resolutions)
-    //     .dest(path.resolve(__dirname, '..', dest, dirName))
-    //     .run()
-    //     .then(() => console.log(`Page ${idx + 1}: ${page} - done!`));
+const screenShot = ({
+    idx,
+    delay = 5,
+    url = '',
+    page = '',
+    resolutions = ['1920x1080'],
+    dest
+}) => {
+    new Pageres({delay: delay})
+        .src(`${url}${page}`, resolutions)
+        .dest(path.resolve(__dirname, dest))
+        .run()
+        .then(() => logger.log(`Page ${idx + 1}: ${page} - screenshot done!`));
 };
 
 /**
@@ -52,7 +60,7 @@ const make = (props = {}) => {
     logger.log(`Total pages: ${pages.length}`);
 
     pages.forEach((page, idx) => {
-        makeScreenshot({page, idx, delay, resolutions});
+        screenShot({page, idx, delay, resolutions});
     });
 };
 
