@@ -32,6 +32,13 @@ module.exports = {
                 sideEffects: false
             }
         ]
+    },
+
+    externals: {
+        pageres: 'pageres',
+        path: 'path',
+        colors: 'colors',
+        tracer: 'tracer'
     }
 };
 
