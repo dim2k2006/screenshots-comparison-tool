@@ -7,7 +7,9 @@ module.exports = {
 
     output: {
         path: `${__dirname}/dist`,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        library: 'screenshots',
+        libraryTarget: 'umd'
     },
 
     watch: NODE_ENV === 'development',
@@ -34,12 +36,12 @@ module.exports = {
         ]
     },
 
-    externals: {
-        pageres: 'pageres',
-        path: 'path',
-        colors: 'colors',
-        tracer: 'tracer'
-    }
+    externals: [
+        'tracer',
+        'colors',
+        'path',
+        'pageres'
+    ]
 };
 
 if (NODE_ENV === 'production') {
