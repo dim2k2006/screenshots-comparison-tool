@@ -2,7 +2,7 @@
   "name": "screenshots-comparison-tool",
   "version": "1.0.0",
   "description": "1. npm run screenshots:make - to make first set of screenshots",
-  "main": "./dist/bundle.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "webpack",
     "build": "NODE_ENV='production' webpack",
