@@ -28,13 +28,18 @@ const getCurrentDate = () => {
 const screenShot = ({
     idx,
     delay = 5,
-    url = '',
     page = '',
     resolutions = ['1920x1080'],
     dest
 }) => {
+    if (typeof dest === 'undefined') {
+        logger.warn('Destination folder is not defined. Skipping screenshot.');
+
+        return false;
+    }
+
     new Pageres({delay: delay})
-        .src(`${url}${page}`, resolutions)
+        .src(`${page}`, resolutions)
         .dest(path.resolve(__dirname, dest))
         .run()
         .then(() => logger.log(`Page ${idx + 1}: ${page} - screenshot done!`));
@@ -49,7 +54,7 @@ const make = (props = {}) => {
         ...config,
         ...props
     };
-    const {pages = [], delay, resolutions} = options;
+    const {pages = [], delay, resolutions, dest} = options;
 
     if (!pages.length) {
         logger.warn('Pages are not defined. Terminating process.');
@@ -60,7 +65,7 @@ const make = (props = {}) => {
     logger.log(`Total pages: ${pages.length}`);
 
     pages.forEach((page, idx) => {
-        screenShot({page, idx, delay, resolutions});
+        screenShot({page, idx, delay, resolutions, dest});
     });
 };
 
