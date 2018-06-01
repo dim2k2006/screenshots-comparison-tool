@@ -9,7 +9,7 @@ module.exports = {
         path: `${__dirname}/dist`,
         filename: 'bundle.js',
         library: 'screenshots',
-        libraryTarget: 'umd'
+        libraryTarget: 'commonjs2'
     },
 
     watch: NODE_ENV === 'development',
