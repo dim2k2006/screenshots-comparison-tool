@@ -1,5 +1,5 @@
-import colors from 'colors';
-import Tracer from 'tracer';
+const colors = require('colors');
+const Tracer = require('tracer');
 
 const logger = Tracer.colorConsole({
     format: '{{timestamp}} | {{message}}',
@@ -16,4 +16,4 @@ const logger = Tracer.colorConsole({
     ]
 });
 
-export default logger;
+module.exports = logger;

@@ -1,7 +1,7 @@
-import Pageres from 'pageres';
-import path from 'path';
-import logger from '../../utils/logger';
-import config from '../../config';
+const Pageres = require('pageres');
+const path = require('path');
+const logger = require('../../utils/logger');
+const config = require('../../config');
 
 /**
  * Get current date
@@ -30,7 +30,8 @@ const screenShot = ({
     delay = 5,
     page = '',
     resolutions = ['1920x1080'],
-    dest
+    dest,
+    currentDate = getCurrentDate()
 }) => {
     if (typeof dest === 'undefined') {
         logger.warn('Destination folder is not defined. Skipping screenshot.');
@@ -38,9 +39,11 @@ const screenShot = ({
         return false;
     }
 
+    const resultPath = path.dirname(process.argv[1]);
+
     new Pageres({delay: delay})
         .src(`${page}`, resolutions)
-        .dest(path.resolve(__dirname, dest))
+        .dest(path.resolve(resultPath, dest, currentDate))
         .run()
         .then(() => logger.log(`Page ${idx + 1}: ${page} - screenshot done!`));
 };
@@ -69,4 +72,4 @@ const make = (props = {}) => {
     });
 };
 
-export {getCurrentDate, make};
+module.exports = make;

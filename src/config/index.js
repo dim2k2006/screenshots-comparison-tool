@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     delay: 5,
     // resolutions: ['1920x1080', '1440x759', '768x1024', '375x667', '320x568'],
     resolutions: ['1920x1080']
