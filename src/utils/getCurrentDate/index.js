@@ -1,9 +1,12 @@
 /**
  * Get current date
+ * @param {String} dateString (in ISO format, for example: 2015-03-25)
  * @return {String}
  */
-const getCurrentDate = () => {
-    const date = new Date;
+const getCurrentDate = (dateString = '') => {
+    const date = (dateString !== '')
+        ? new Date(dateString)
+        : new Date();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
