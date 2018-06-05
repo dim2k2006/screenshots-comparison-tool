@@ -5,8 +5,11 @@ const screenShot = require('./modules/screenShot');
 /**
  * Creates screenshots of the given pages
  * @param {Object} props
+ * @param {Object} Logger
+ * @param {Function} screen
+ * @returns {Boolean}
  */
-const make = (props = {}) => {
+const make = (props = {}, Logger = logger, screen = screenShot) => {
     const options = {
         ...config,
         ...props
@@ -14,15 +17,15 @@ const make = (props = {}) => {
     const {pages = [], delay, resolutions, dest} = options;
 
     if (!pages.length) {
-        logger.warn('Pages are not defined. Terminating process.');
+        Logger.warn('Pages are not defined. Terminating process.');
 
         return false;
     }
 
-    logger.log(`Total pages: ${pages.length}`);
+    Logger.log(`Total pages: ${pages.length}`);
 
     pages.forEach((page, idx) => {
-        screenShot({page, idx, delay, resolutions, dest});
+        screen({page, idx, delay, resolutions, dest});
     });
 
     return true;
